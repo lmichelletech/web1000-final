@@ -1,39 +1,130 @@
 1. What are the four steps of mergesort?
 
+Answer:
+1. Split the list in half into sublists
+2. Repeat step 1 until all the lists are made up of one element
+3. Merge pairs of sublists so that each sublist has twice as many elements. Each time you merge sort the elements.
+4. Repeat step 3 until you've merged all the sublists together.
+
 2. Using JavaScript, generate a random number between 50 and 100.
+Answer:
+Math.floor(Math.random()*51)+50;
 
 3. Using Javascript, generate a random number between -100 and 100.
+Answer:
+Math.floor(Math.random()*-201)+100;
 
 4. Write a coin flip function. It should return the string "heads" half the time and the string "tails" the other half
 
+  Answer:
   function coinFlip(){
+    let n = Math.floor(Math.random()*2)+1;
 
+    if(n === 1){
+        return "tails";
+    }
+    else return "heads";
   }
 
 5. Re-state the following expression without using negation: !(10 > x)
 
+Answer:
+10 <= x
+
 6. Re-state the following expression without using negation: !(a > 10 && b <= 5)
+
+Answer:
+a <= 10 || b > 5
 
 7. Re-state the following expression without repeating variable a: (a && x <= 10) || (a && y < 0)
 
+Answer:
+a && ((x <= 10) || (y < 0))
+
 8. Re-state the following expression without negations: !( (a > 10) || (b > 10) || (c > 10) || (isAdmin) )
+
+Answer:
+(a <= 10) && (b <= 10) && (c <= 10) && (isAdmin)
 
 9. Write a function which, given a 2-d array of strings, returns the concatenation of all the strings.
 
-  function twodconcat(arr){
+  Answer:
+  function twodconcat(m){
+    var str = "";
 
+    for(var i = 0; i < m.length; i++){
+        var n = m[i];
+        
+        for(var j = 0; j < n.length; j++){
+            str = str.concat(m[i][j] + " ");
+        }
+    }
+
+    return str;
   }
+
+  var numbers = [
+    ["one", "two", "three"],
+    ["four", "five", "six"],
+  ];
+
+console.log(twodconcat(numbers));
 
 10. Write a function which, given a 2-d array and another value x, returns true if x is present in the 2-d array, and false otherwise.
-  function containsElement(arr, x){
 
+Answer:
+function containsElement(arr, x){
+
+  var str = "";
+
+  for(var i = 0; i < arr.length; i++){
+      var inner = arr[i];
+      
+      for(var j = 0; j < inner.length; j++){
+          if(arr[i][j] === x){
+              return true;
+          }
+      }
   }
 
-11. Write a function which, given an two sorted arrays of sizes m and n, returns a larger sorted array of size m+n. This function must work in O(m+n) time.
+  return false;
+}
+
+var strings = [
+["one", "two", "three"],
+["four", "five", "six"]
+];
+
+var item = "one";
+
+console.log(containsElement(strings, item));
+
+
+11. Write a function which, given an two sorted arrays of sizes m and n, returns a larger sorted array of size m+n. 
+This function must work in O(m+n) time.
+
+Answer:
+function sortedArr(arr1, arr2){
+
+    if(arr1[arr1.length-1] < arr2[arr2.length-1]){
+        var str = arr1.concat(arr2);
+    }
+    else{
+        var str = arr2.concat(arr1);
+    }
+    return str;
+}
+
+n2 = [45, 51, 70];
+n1 = [4, 7, 10];
+console.log(sortedArr(n1, n2));
 
 12. Given the following edge list, draw the graph. Use MS Paint and include the file in your repo.
 
 E = [[1,2], [2,3], [4,5], [2,4], [1,5]  ]
+
+Answer:
+
 
 13. Given the following adjacency Matrix, determine whether the graph is directed or undirected and draw it.
 M = [
@@ -44,8 +135,14 @@ M = [
   [0,0,0,0,1],
 ]
 
+Answer: see included image
 
-14. For exercises 9 and 10, if you assume that n is the size of one side of the matrix, what is the time complexity (Big Oh) of the algorithms you wrote?
+14. For exercises 9 and 10, if you assume that n is the size of one side of the matrix, what is the time complexity (Big Oh) of 
+the algorithms you wrote?
+
+Answer:
+O(n^2)
+
 
 15. What is the time complexity of the following function?
 
@@ -59,6 +156,9 @@ M = [
     }
     return ret;
   }
+
+  Answer: For loop is O(n) and everything else is constant, so O(n)
+
 
 16. What is the time complexity of the following function?
   function thugify(schoolList){
@@ -75,6 +175,9 @@ M = [
     });
   }
 
+  Answer: Map is O(n) and forEach is O(n), so O(n^2)
+
+
 17. What is the time complexity of the following function?
   function countRepeats(strArr){
     var repeats = 0;
@@ -89,15 +192,34 @@ M = [
     return repeats;
   }
 
+Answer: forEach and filter methods are O(n), so O(n^2)
+
+
 18. What are the main operations of a stack?
+
+Answer: Push to add and Pop to remove
+
 
 19. What are the main operations of a queue?
 
+Answer: enqueue to add and dequeue to remove
+
 20. What is the runtime of bubblesort? How does it work?
+
+Answer: O(n^2)
+
+It compares the first two elements of an array and swaps them if they are out of order. The largest number gets 
+swapped until it reaches the end of the array and in its proper position. We continue to do this 
+for each pair of adjacent elements. The procedure continues until the array is sorted.
 
 21. Create a personal website and upload it so that it is accessible at yourdomain.fvi-grad.com.
 
-i. The website must have your name, contact information, skills, and at least two links to portfolio items you are hosting on fvi-grad.
-ii. The website must not be in a subdirectory of the document root. ie. It needs to be accessible by going to yourusername.fvi-grad.com/ without anything after the slash.
+i.   The website must have your name, contact information, skills, and at least two links to portfolio items you are hosting on fvi-grad.
+ii.  The website must not be in a subdirectory of the document root. ie. It needs to be accessible by going to yourusername.fvi-grad.com/ 
+     without anything after the slash.
 iii. You can and should use a template
-iv. Include the link to your website in your answers document
+iv.  Include the link to your website in your answers document
+
+Answer:
+lmichelle.fvi-grad.com
+
